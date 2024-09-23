@@ -1,6 +1,7 @@
-// import Quadrado from "./quadrado.js";
-// import Triangulo from "./triangulo.js";
-import { Quadrado, Triangulo } from "./formas.js";
+import Quadrado from "./quadrado.js";
+import Triangulo from "./triangulo.js";
+import Poligono from "./poligono.js";
+// import { Quadrado, Triangulo } from "./formas.js";
 
 type Aluno = {
     nome: string;
@@ -159,7 +160,30 @@ alunoNovo2.estudar();
 alunoNovo2.ativo = false;
 
 const q1 = new Quadrado(20, 20, 200);
-console.log(q1);
+
+// Não é possível acessar ou alterar valores em propriedades privadas de uma classe
+// console.log("O lado de q1 é", q1.lado);
+// q1.lado = 5;
+
+// console.log("O lado de q1 é", q1.getLado());
+// q1.setLado(250);
+// console.log("O lado de q1 é", q1.getLado());
+
+console.log("O lado de q1 é", q1.qlado);
+q1.qlado = 50;
+console.log("O lado de q1 é", q1.qlado);
+console.log(Quadrado.total_quads);
+
+const q2 = new Quadrado(100, 30, 300);
+console.log(Quadrado.total_quads);
+
+console.log(Quadrado.uniao(q1, q2));
 
 const t1 = new Triangulo(100, 100, 50, 30);
 console.log(t1);
+
+const p1 = new Poligono(200, 100, 5); // pentágono
+console.log(p1);
+
+const p2 = new Poligono(200, 100, 2); // não existe
+console.log(p1);

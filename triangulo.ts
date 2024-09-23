@@ -1,18 +1,17 @@
-export default class Triangulo {
-    x: number;
-    y: number;
+import Poligono from "./poligono";
+
+export default class Triangulo extends Poligono {
     base: number;
     altura: number;
 
     constructor(x: number, y: number, base: number, altura: number) {
-        this.x = x;
-        this.y = y;
+        super(x, y, 3);
         this.base = base;
         this.altura = altura;
     }
 
     perimetro() {
-        return 3 * this.base;
+        return this.total_lados * this.base;
     }
 
     area() {
