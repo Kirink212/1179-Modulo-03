@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "compile": "npx tsc -w --project tsconfig.json"
+  },
   "devDependencies": {
     "tailwindcss": "^3.4.11",
     "typescript": "^5.6.2"

@@ -1,4 +1,4 @@
-import Poligono from "./poligono";
+import Poligono from "./poligono.js";
 
 export default class Triangulo extends Poligono {
     base: number;

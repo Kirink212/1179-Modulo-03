@@ -1,4 +1,4 @@
-import Poligono from "./poligono";
+import Poligono from "./poligono.js";
 
 export default class Quadrado extends Poligono {
     static total_quads: number = 0;

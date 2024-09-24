@@ -13,6 +13,16 @@ type Aluno = {
     parabenizar?: () => void;
 };
 
+interface IAluno {
+    nome: string;
+    altura: number;
+    dataNasc: Date;
+    modulosCursados: Array<string>; // string[] ou Array<string>
+    ativo?: boolean;
+    estudar?: () => void;
+    parabenizar?: () => void;
+};
+
 let message: string = "Estou usando TYPESCRIPT boladão";
 // message = 9; -> typescript vai reclamar
 
@@ -50,6 +60,35 @@ let objAluno: Aluno = {
     "dataNasc": new Date("1995-04-04"),
     "modulosCursados": ["Frontend Estático", "Lógica de Programação"],
     "ativo": true
+};
+
+type AlunoUniversidade = IAluno | {
+    universidade: string;
+    departamento: string;
+};
+
+type AlunoColegio = Omit<IAluno, "modulosCursados"> & {
+    ano: number;
+    ensino: string
+};
+
+let objAlunoCol: AlunoColegio = {
+    "nome": "Matheus Quintanilha",
+    "altura": 1.75,
+    "dataNasc": new Date("1995-04-04"),
+    "ativo": true,
+    "ano": 3,
+    "ensino": "Médio",
+}
+
+let objAluno2: AlunoUniversidade = {
+    "nome": "Matheus Quintanilha",
+    "altura": 1.75,
+    "dataNasc": new Date("1995-04-04"),
+    "modulosCursados": ["Frontend Estático", "Lógica de Programação"],
+    "ativo": true,
+    "universidade": "PUC-Rio",
+    "departamento": "CB/CTC"
 };
 
 if (objAluno.estudar) objAluno.estudar();
@@ -144,6 +183,8 @@ class AlunoClass {
     }
 }
 
+
+
 // "1997-01-19"
 const alunoNovo: AlunoClass = new AlunoClass("Karolyne Carvalho", 1.53, "1997-09-13", ["Frontend Estático", "Lógica de Programação"]);
 console.log(alunoNovo);
@@ -176,6 +217,7 @@ console.log(Quadrado.total_quads);
 
 const q2 = new Quadrado(100, 30, 300);
 console.log(Quadrado.total_quads);
+console.log(q2.somaAngulosInternos());
 
 console.log(Quadrado.uniao(q1, q2));
 
